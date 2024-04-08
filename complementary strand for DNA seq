@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+
+$file="seq.fasta";
+
+open(fh,'<',"$file") or die "File does not exist";
+
+while(<fh>)
+
+{
+
+next if /^>/;
+
+chomp($_);
+
+$a=$a.$_;
+
+}
+
+$b=length($a);
+
+print "$b\n";
+
+if ($a=~ tr/ATGC/TACG/)
+
+{
+
+$a=reverse($a);
+
+print $a;
+
+}
+
+close(fh);
