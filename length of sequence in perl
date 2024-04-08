@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+open(fh,'<',"seq.fasta")or die "File doesnot found";
+
+while (<fh>)
+
+{
+
+next if /^>/;
+
+chomp($_);
+
+$a=$a.$_;
+
+}
+
+print ($a,"\n");
+
+$l=length($a);
+
+print ("Length of the seq:",$l,"\n");
+
+close(fh);
