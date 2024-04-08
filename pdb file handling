@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+
+open (FH , "<1crn.pdb");
+
+@filecontents = <FH>;
+
+print @filecontents;
+
+#find the type of method used for crystallisation
+
+for($i=0;$i<scalar(@filecontents);$i++)
+
+{
+
+if(@filecontents [$i] = ~/EXPDATA/)
+
+{
+
+print $filec[$i];
+
+}
+
+}
+
+#to print resolution 
+
+if (#filec[$i] = ~/RESOLUTION\.\s+(\d\.d{2})\s+ANGSTROMS/)
+
+{
+
+print $i;
+
+
+
+}
+
