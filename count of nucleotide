@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+
+open(fh,"seq.fasta")or die "File doesnot exist";
+
+while(<fh>)
+
+{
+
+next if /^>/;
+
+chomp($_);
+
+$a=$a.$_;
+
+}
+
+print ($a,"\n");
+
+$l=length($a);
+
+print("Length of the sequence :",$l ,"\n");
+
+@word=split('',$a);
+
+for($i=0;$i<$l;$i++)
+
+{
+
+if ($word[$i] eq "A")
+
+{
+
+$b=$b+1;
+
+}
+
+elsif ($word[$i] eq "T")
+
+{
+
+$t=$t+1;
+
+}
+
+elsif ($word[$i] eq "G")
+
+{
+
+$g=$g+1;
+
+}
+
+elsif ($word[$i] eq "C")
+
+{ 
+
+$c=$c+1;
+
+}
+
+}
+
+print ("\ncount of A :",$b);
+
+print ("\ncount of T :",$t);
+
+print ("\ncount of G :",$g);
+
+print ("\ncount of C :",$c);
+
+close(fh);
